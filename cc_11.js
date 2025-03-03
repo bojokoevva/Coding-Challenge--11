@@ -121,3 +121,23 @@ class Library {
  }
 
 
+ // Test Case 3
+ const library = new Library(); // Create a new library instance
+ library.borrowers.push(borrower1); // Add borrower to the library
+ library.addBook(book1); // Add book to the library
+ library.listBooks(); // List books in the library
+ // Expected output: "Title: The Great Gatsby, Author: F. Scott Fitzgerald, ISBN: 123456, Copies: 4"
+ 
+ // Test Case 4
+ library.lendBook(201, 123456);
+ console.log(book1.getDetails());
+ // Expected output: "Title: The Great Gatsby, Author: F. Scott Fitzgerald, ISBN: 123456, Copies: 3"
+ console.log(borrower1.borrowedBooks);
+ // Expected output: ["The Great Gatsby"]
+ 
+ // Test Case 5
+ library.returnBook(201, 123456);
+ console.log(book1.getDetails());
+ // Expected output: "Title: The Great Gatsby, Author: F. Scott Fitzgerald, ISBN: 123456, Copies: 4"
+ console.log(borrower1.borrowedBooks);
+ // Expected output: []
