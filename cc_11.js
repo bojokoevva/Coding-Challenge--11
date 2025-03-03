@@ -77,7 +77,7 @@ class Library {
     };
 
 
-     // Task 4 - Implement Book Borrowing
+// Task 4 - Implement Book Borrowing
      lendBook(borrowerId, isbn) {
         let book = this.books.find(bk => bk.isbn === isbn); // Find book by ISBN
         let borrower = this.borrowers.find(br => br.borrowerId === borrowerId); // Find borrower by ID
@@ -98,3 +98,26 @@ class Library {
             console.log(`No copies of ${book.title} are available!`);
         }
     };
+
+
+// Task 5 - Implement Book Returns
+ returnBook(borrowerId, isbn) {
+    let book = this.books.find(bk => bk.isbn === isbn); // Find book by ISBN
+    let borrower = this.borrowers.find(br => br.borrowerId === borrowerId); // Find borrower by ID
+            
+    if (!book) {
+        console.log(`No book found with ISBN: ${isbn}!`);
+        return;
+    }
+    if (!borrower) {
+        console.log(`No borrower found with borrower ID: ${borrowerId}!`);
+        return;
+    }
+            
+    book.updateCopies(1); // Increase book copies
+    borrower.returnBook(book); // Remove book from borrower's list
+    console.log("Book returned successfully.");
+    }
+ }
+
+
